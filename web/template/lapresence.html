@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Majestic Admin</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css" />
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="images/favicon.png" />
+  </head>
+
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+          <div
+            class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+          >
+            <a class="navbar-brand brand-logo" href="index.html"
+              ><img src="images/faces/SZ.png" style="width: 30px" />
+              SHARP ZONE
+            </a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"
+              ><img src="images/logo-mini.svg" style="width: 2px" alt="logo"
+            /></a>
+            <button
+              class="navbar-toggler navbar-toggler align-self-center"
+              type="button"
+              data-toggle="minimize"
+            >
+              <span class="mdi mdi-sort-variant"></span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+        >
+          <ul class="navbar-nav mr-lg-4 w-100">
+            <li class="nav-item d-none d-lg-block w-100">
+              <div class="input-group"> ATTENDANCE </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-nav-right">
+
+
+            <li class="nav-item nav-profile dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                id="profileDropdown"
+              >
+                <img src="images/faces/face5.jpg" alt="profile" />
+                <span class="nav-profile-name">User 1</span>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                aria-labelledby="profileDropdown"
+              >
+                <a class="dropdown-item">
+                  <i class="mdi mdi-logout text-primary"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+          <button
+            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+            type="button"
+            data-toggle="offcanvas"
+          >
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+         <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="lapresence.html">
+                <i class="mdi mdi-checkbox-multiple-marked menu-icon"></i>
+                <span class="menu-title">Attendance</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="studentGetions.html">
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Students</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="report.html">
+                <i class="mdi mdi-clipboard-text menu-icon"></i>
+                <span class="menu-title">Reports</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+
+
+              <div class="col-md-8 grid-margin stretch-card">
+                <div class="card">
+                  <div class="row">
+                    <div class="col-md-7" id="display">
+                      <div class="card-body">
+                        <h4 class="card-title">Display</h4>
+                        <div class="card-body">
+                          Camera Status :
+                          <span id="camera-status"></span>
+                          <img src="../img/display.png" id="video" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Live Attendance</h4>
+                    <p class="card-description"></p>
+                    <div class="template-demo">
+                      <div class="form-group">
+                        <label >Select Class:</label>
+                        <select class="form-select" id="live-attendance-class">
+                          <option value="">Select Class</option>
+                          <option value="C1">C1</option>
+                          <option value="C2">C2</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label >Camere type:</label>
+                        <select class="form-select" id="camera-type">
+                          <option value="1">Computer Camera</option>
+                          <option value="2">USB Camera</option>
+<!--                          <option value="3">IP Camera</option>-->
+                          n>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="button"
+                          class="btn btn-success btn-icon-text "
+                          onclick="start_video();"
+                          value="START"
+                        />
+                      </div>
+<!--                      <div class="form-group" id="ip-address-group">-->
+<!--                        <label>IP address:</label>-->
+<!--                        <input-->
+<!--                          type="text"-->
+<!--                          class="form-control"-->
+<!--                          id="ip-address"-->
+<!--                          placeholder="https or http://192.168.0.2"-->
+<!--                        />-->
+<!--                      </div>-->
+                      <div class="form-group">
+                        <input
+                          type="button"
+                          class="btn btn-danger btn-icon-text"
+                          onclick="stop_video();"
+                          value="STOP"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      Attendees
+
+                      <input
+                        type="button"
+                        style="background-color: white; border: none"
+                        value="0"
+                        id="attendees-count"
+                      />
+                    </h4>
+
+                    <p class="card-description"></p>
+                    <div class="template-demo">
+                      <table class="table">
+                        <tbody id="attendees"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="../../js/attendance.js"></script>
+    <script src="vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="js/off-canvas.js"></script>
+    <script src="js/hoverable-collapse.js"></script>
+    <script src="js/template.js"></script>
+    <!-- endinject -->
+  </body>
+</html>
